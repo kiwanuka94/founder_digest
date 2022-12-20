@@ -1,0 +1,47 @@
+## Table Name Here
+
+-attribute_name (data type)
+
+
+## UserSubmissions
+If a submission is approved, we will map the fields to a user record.
+
+-email
+-first_name
+-last_name
+-website
+-job_role
+-text
+-status (pending, approved, rejected)
+-user_id #MAYBE
+
+## Users
+If a user exists, it has a pair to a UserSubmission with a status approved.
+
+-email
+-first_name
+-last_name
+-job_role
+-user_submission_id #MAYBE
+-password
+
+
+## Digests
+Aka the newsletter updates
+
+-title (example: Fomo.com)
+-website
+-description (example: "Monthly updates from a bootstrapped solo founder")
+-avatar_url (example: https://fomo.com/favicon.ico)
+-user_id (ex: 5)
+
+## StakeholderUpdates
+
+-content (example: "This month we...")
+-digest_id (which Digest does this update belong to?)
+
+## Subscriptions
+Users with a relationship with other users.
+
+-digest_id (ex: 5)
+-user_id (ex: 2)
