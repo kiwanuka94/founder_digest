@@ -2,8 +2,17 @@
 
 -attribute_name (data type)
 
+## Users ## DONE
+If a user exists, it has a pair to a UserSubmission with a status approved.
 
-## UserSubmissions
+-email
+-first_name
+-last_name
+-job_role
+-user_submission_id #MAYBE
+-password
+
+## UserSubmissions ## DONE
 If a submission is approved, we will map the fields to a user record.
 
 -email
@@ -15,18 +24,8 @@ If a submission is approved, we will map the fields to a user record.
 -status (pending, approved, rejected)
 -user_id #MAYBE
 
-## Users
-If a user exists, it has a pair to a UserSubmission with a status approved.
 
--email
--first_name
--last_name
--job_role
--user_submission_id #MAYBE
--password
-
-
-## Digests
+## Projects ## DONE
 Aka the newsletter updates
 
 -title (example: Fomo.com)
@@ -35,10 +34,15 @@ Aka the newsletter updates
 -avatar_url (example: https://fomo.com/favicon.ico)
 -user_id (ex: 5)
 
-## StakeholderUpdates
 
+
+## StakeholderUpdates ## DONE
+
+-title
 -content (example: "This month we...")
 -digest_id (which Digest does this update belong to?)
+
+
 
 ## Subscriptions
 Users with a relationship with other users.
