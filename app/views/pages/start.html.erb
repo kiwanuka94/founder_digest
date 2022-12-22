@@ -1,0 +1,50 @@
+<%= render partial: "shared/heading", locals: {title: 'Welcome', tagline: 'You have been accepted into Founder Digest! Please provide a few more pieces of information below.'} %>
+
+
+<!-- form -->
+<div class="relative">
+  <div class="relative max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <form class="space-y-8 divide-y divide-gray-200 mx-auto max-w-7xl py-24 px-4 sm:py-12">
+      <div class="space-y-8 divide-gray-200 sm:space-y-5">
+        <div class="space-y-6 sm:space-y-5">
+
+
+
+        </div>
+
+        <div class="">
+          <div class="space-y-6 sm:space-y-5">
+            <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+              <label for="first-name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2" >What's your stakeholder update called?</label>
+              <div class="mt-1 sm:col-span-2 sm:mt-0">
+                <input type="text" name="update-name" id="update-name" placeholder="Fomo.com" class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm">
+                <p class="mt-2 text-xs text-gray-500">Simply your company name will do, or a brief summary, e.g. "B2B SaaS Bootstrapped Startup"</p>
+              </div>
+            </div>
+
+
+
+            <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5 pt-8 sm:space-y-5">
+              <label for="about" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Please describe your updates in 15 words or fewer.</label>
+              <div class="mt-1 sm:col-span-2 sm:mt-0">
+                <textarea id="description" maxlength="150" name="description" rows="3" placeholder="Monthly marketing and product updates by a bootsrapped Shopify App founder." class="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+
+      <div class="pt-5">
+        <div class="flex justify-left">
+          <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-10 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Continue to dashboard</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</div>

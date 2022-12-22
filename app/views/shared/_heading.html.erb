@@ -1,5 +1,11 @@
-<% description ||= '' %>
-<div class="text-center mb-4">
-  <h1 class="mt-1 font-extrabold text-gray-900 text-4xl sm:text-4xl sm:tracking-tight lg:text-5xl"><%= title %></h1>
-  <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500"><%= description.html_safe %></p>
+<!-- page header -->
+<div class="relative">
+  <div class="absolute inset-0 bg-gray-900">
+    <!-- <img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100" alt=""> -->
+    <div class="absolute inset-0" aria-hidden="true"></div>
+  </div>
+  <div class="relative mx-auto max-w-7xl py-24 px-4 sm:py-16 sm:px-6 lg:px-8">
+    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-4xl"><%= title %></h1>
+    <p class="mt-6 max-w-2xl text-xl text-indigo-100"><%= tagline %></p>
+  </div>
 </div>
