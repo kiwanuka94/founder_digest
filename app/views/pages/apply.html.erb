@@ -1,6 +1,6 @@
 <%= render partial: "shared/heading", locals: {title: 'Application', tagline: 'Apply to Founder Digest. Each submission is manually reviewed by our team within 24 hours.'} %>
 
-
+<% plan_name = params[:plan] || 'free' %>
 
 <!-- form -->
 <div class="relative">
@@ -12,7 +12,7 @@
           <div class="space-y-6 sm:space-y-5">
           </div>
 
-          <input type="hidden" name="plan" value="<%=params[:plan]%>">
+          <input type="hidden" id="user_submission_plan_name" name="user_submission[plan_name]" value="<%=plan_name%>">
 
           <div class="">
             <div class="space-y-6 sm:space-y-5">
