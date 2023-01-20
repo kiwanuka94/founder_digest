@@ -14,6 +14,7 @@
             <thead class="bg-gray-50">
               <tr>
                 <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Name</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Plan</th>
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Email</th>
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Website</th>
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Role</th>
@@ -26,36 +27,45 @@
 
 
             <tbody class="divide-y divide-gray-200 bg-white">
-              <tr>
-                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
-                  <div class="flex items-center">
-                    <div class="h-10 w-10 flex-shrink-0">
-                      <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                    </div>
-                    <div class="ml-4">
-                      <div class="font-medium text-gray-900">Lindsay Walton</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">r@fomo.com</td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">https://www.fomo.com</td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Founder</td>
-                <td class="px-3 py-4 text-sm text-gray-500 max-w-xs">
-                  <div class="text-gray-500">This should be a multiline sorta thing going on here... hldldkdkdkdkdkdd;adfd  lda;fdak</div>
 
-                </td>
-                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  <div>
+              <% @user_submissions.each do |user_submission| %>
 
-                    <select id="location" name="location" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                      <option>Approve</option>
-                      <option selected>Pending</option>
-                      <option>Reject</option>
-                    </select>
+                <tr>
+                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+                    <div class="flex items-center">
+                      <div class="h-10 w-10 flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                      </div>
+                      <div class="ml-4">
+                        <div class="font-medium text-gray-900"><%= user_submission.name %></div>
+                      </div>
                     </div>
-                </td>
+                  </td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= user_submission.plan_name %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= user_submission.email %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= user_submission.website %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= user_submission.job_role %></td>
+                  <td class="px-3 py-4 text-sm text-gray-500 max-w-xs">
+                    <div class="text-gray-500"><%= user_submission.text %></div>
 
-              </tr>
+                  </td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                    <div>
+                      <%= form_for user_submission, url: admin_user_submission_path(user_submission) do |f| %>
+                        <select id="user_submission_status" name="user_submission[status]" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                          <option <%= 'selected' if user_submission.status.nil?  %>>Pending</option>
+                          <option <%= 'selected' if user_submission.status == 'Approve' %>>Approve</option>
+                          <option <%= 'selected' if user_submission.status == 'Reject'  %>>Reject</option>
+                        </select>
+                        <%= f.submit 'Update', class:'inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-10 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mt-2'%>
+                      <% end %>
+
+
+                    </div>
+                  </td>
+
+                </tr>
+              <% end %>
 
               <!-- More people... -->
             </tbody>
