@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:start, :logout]
+  
 
   def home
   end
@@ -23,7 +24,8 @@ class PagesController < ApplicationController
   end
   
   def start
-    
+    @project = current_user.default_project
+    redirect_to dashboard_path if (@project.title? && @project.description?)
   end
 
   def logout

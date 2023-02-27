@@ -10,7 +10,7 @@ class UserSubmission < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-
+ 
   def finish_processing
     reject! if status == 'Reject'
     accept! if status == 'Accept'
@@ -23,6 +23,7 @@ class UserSubmission < ApplicationRecord
   def accept!
     password = generate_password
     created_user = User.create!(email: self.email, password: password)
+    created_user.projects.create!(website: self.website)
     UserSubmissionMailer.accept(self, created_user).deliver
   end
 
