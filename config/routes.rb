@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'dashboard#index', as: 'dashboard'
 
-  get 'stakeholder_updates/new', to: 'stakeholder_updates#new'
-
+  
+  resources :stakeholder_updates, only: [:new, :create, :show]
 
 
   resources :subscribe, only: [:index]

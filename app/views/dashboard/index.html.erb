@@ -20,7 +20,8 @@
       </div>
       <div class="basis-1/2 text-right">
         <p><%= @project.subscribers.count %> Subscribers</p>
-        <p><a href="/stakeholder_updates/new" class="underline"> Share Update </a></p>
+        <p><a href="<%= new_stakeholder_update_path %>" class="underline"> Share Update </a></p>
+        <p><a href="<%= stakeholder_update_path(current_user.stakeholder_updates.last)%>" class="underline"> View Last Update </a></p>
         <p><a href="" class="underline"> Edit Subscription </a></p>
       </div>
     </div>
@@ -72,13 +73,16 @@
 
   function checkboxChanged(checkbox) {
     let projectId = checkbox.dataset.projectId;
+    let label = document.querySelector(`label[for='${projectId}_subscribed_status']`);
     
 
     if (checkbox.checked) {
       createSubscription(projectId);
+      label.textContent = 'Subscribed';
     } else {
       let subscriberId = checkbox.dataset.subscriberId;
       deleteSubscription(projectId, subscriberId);
+      label.textContent = 'Subscribe';
     }
   }
 
