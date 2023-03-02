@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   
   resources :stakeholder_updates, only: [:new, :create, :show, :update]
+  resources :updates, only: [:show]
 
 
   resources :subscribe, only: [:index]
