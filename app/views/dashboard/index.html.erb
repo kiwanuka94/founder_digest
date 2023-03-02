@@ -20,8 +20,11 @@
       </div>
       <div class="basis-1/2 text-right">
         <p><%= @project.subscribers.count %> Subscribers</p>
-        <p><a href="<%= new_stakeholder_update_path %>" class="underline"> Share Update </a></p>
-        <p><a href="<%= stakeholder_update_path(current_user.stakeholder_updates.last)%>" class="underline"> View Last Update </a></p>
+        <p><a href="<%= new_stakeholder_update_path %>" class="underline"> Write an Update </a></p>
+        <% if current_user.stakeholder_updates.count > 0 %>
+          <p><a href="<%= stakeholder_update_path(current_user.stakeholder_updates.last)%>" class="underline"> View Last Update </a></p>
+        <% end %>
+        
         <p><a href="" class="underline"> Edit Subscription </a></p>
       </div>
     </div>
@@ -48,7 +51,7 @@
       
       
         <div class="min-w-0 flex-1 text-sm">
-          <label for="<%= other_project.id %>_subscribed_status" class="font-medium text-gray-700">{{ Subscriber Status }}</label>
+          <label for="<%= other_project.id %>_subscribed_status" class="font-medium text-gray-700">Subscribe</label>
 
         </div>
         <div class="ml-3 flex h-5 items-center">

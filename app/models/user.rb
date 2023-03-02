@@ -20,5 +20,8 @@ class User < ApplicationRecord
     projects.order(created_at: :asc).first
   end
 
+  def name
+    "#{ first_name } #{ last_name }"
+  end
 
 end

@@ -3,13 +3,22 @@
 <div class="max-w-3xl mx-auto mt-10">
 
   <%= form_for @stakeholder_update do |form| %>
+
+
+    <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5 mb-10">
+      <label for="title" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">Update Title</label>
+      <div class="mt-1 sm:col-span-2 sm:mt-0">
+        <%= form.text_field :title, type: 'text', required: true, placeholder: 'Feb 2023: Focused on Sales this month', class: 'block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm' %>
+      </div>
+    </div>
+    
     <div class="field">
       <%= form.rich_text_area :content %>
     </div>
   
 
     <div class="text-right mt-2">
-      <button type="submit" class="inline-flex items-center rounded-md border border-transparent bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
+      <button type="submit" class="inline-flex items-center rounded-md border border-transparent bg-indigo-100 px-4 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Preview</button>
     </div>
 
   <% end %>

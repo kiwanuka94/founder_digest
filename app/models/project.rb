@@ -9,8 +9,14 @@ class Project < ApplicationRecord
 
 
   def self.except(project)
-    Project.where.not(id: project.id)
+    where.not(id: project.id)
   end
+
+
+  def latest_stakeholder_update
+    stakeholder_updates.order(created_at: :desc).first
+  end
+
 
 
 end

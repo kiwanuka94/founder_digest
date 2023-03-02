@@ -30,7 +30,10 @@
   max-width: 100% !important;
 }
 
-
+/* custom css */
 .trix-content a {
   text-decoration: underline;
 }
+
+/* hides attachment button */
+.trix-button-group--file-tools { display: none !important; }

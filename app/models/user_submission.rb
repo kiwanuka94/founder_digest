@@ -1,4 +1,6 @@
 class UserSubmission < ApplicationRecord
+  include RandomStringable
+
   PLAN_NAMES = ['free', 'pro']
 
   validates_presence_of :first_name, :last_name, :email, :website, :job_role, :text
@@ -21,15 +23,13 @@ class UserSubmission < ApplicationRecord
   end
 
   def accept!
-    password = generate_password
-    created_user = User.create!(email: self.email, password: password)
+    password = generate_random_string
+    created_user = User.create!(email: self.email, first_name: self.first_name, last_name: self.last_name, password: password)
     created_user.projects.create!(website: self.website)
     UserSubmissionMailer.accept(self, created_user).deliver
   end
 
-  def generate_password
-    SecureRandom.hex(5)
-  end
+
 
 
 end
