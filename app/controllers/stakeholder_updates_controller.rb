@@ -10,9 +10,17 @@ class StakeholderUpdatesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
   def update
     @stakeholder_update.update(stakeholder_update_params)
-    redirect_to dashboard_path, notice: 'Stakeholder update will be shared!'
+    
+    if @stakeholder_update.confirmed?
+      redirect_to dashboard_path, notice: 'Stakeholder update will be shared!'
+    else
+      redirect_to stakeholder_update_path(@stakeholder_update), notice: 'Stakeholder update was edited!'
+    end
   end
 
   def create
