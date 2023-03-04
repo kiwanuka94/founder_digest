@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'logout', to: 'pages#logout', as: 'logout'
+  get 'login', to: redirect(path: '/users/sign_in')
 
   get 'dashboard', to: 'dashboard#index', as: 'dashboard'
 

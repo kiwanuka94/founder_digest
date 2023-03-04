@@ -1,7 +1,7 @@
 <p>Hi <%= @name %>,</p>
 <p>We've reviewed your application and are excited to extend you an invitation to join!</p>
 <p>Get started here: <br> 
-    <a href="<%= ENV['base_url'] + '/magic_login?auth_code=' + @auth_code %> ">Sign In</a>
+    <a href="<%= ENV['base_url'] + '/magic_login?auth_code=' + @auth_code %> ">Sign In</a> Your temporary password is: <%= @temp_password%>
 </p>
 
 
