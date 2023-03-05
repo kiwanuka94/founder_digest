@@ -2,6 +2,7 @@ class StakeholderUpdatesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project, except: [:new]
   before_action :set_stakeholder_update, except: [:new, :create]
+  before_action :maybe_subscribe
 
   def new
     @stakeholder_update = StakeholderUpdate.new
