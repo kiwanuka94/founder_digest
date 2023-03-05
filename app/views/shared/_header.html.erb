@@ -18,7 +18,6 @@
     <div id="main-nav" class="w-full flex-grow sm:flex text-right sm:w-auto hidden" data-header-target="mainNav">
       <div class="text-sm sm:flex-grow">
         <% nav_link_classes = 'ml-8 whitespace-nowrap text-base font-medium text-white hover:text-gray-500' %>
-        <!-- TODO: ensure only admin can see admin link --> 
         <% if current_user %>
           <% if current_user.admin? %> <a href="/admin" class="<%= nav_link_classes %>">Admin Panel</a> <% end %>
           <a href="/dashboard" class="<%= nav_link_classes %>">Dashboard</a>

@@ -4,9 +4,17 @@ class SubscribersController < ApplicationController
     before_action :authenticate_user!
     before_action :set_subscriber, only: [:destroy]
 
+
     def create
-        subscriber = current_user.subscribers.create(subscriber_params)
-        render json: { status: 'ok', subscriber_id: subscriber.id, project_id: subscriber.project_id }
+        subscriber = current_user.subscribers.new(subscriber_params)
+
+        if subscriber.save
+            response_params = { success: true, subscriber_id: subscriber.id }
+        else
+            response_params = { success: false, error: subscriber.errors.full_message.join }
+        end
+
+        render json: response_params
     end
 
     def destroy
@@ -23,5 +31,6 @@ class SubscribersController < ApplicationController
     def subscriber_params
         params.require(:subscriber).permit(:project_id)
     end
+
 
 end
