@@ -25,14 +25,6 @@ class User < ApplicationRecord
     "#{ first_name } #{ last_name }"
   end
 
-  def pro_plan?
-    plan_name == 'pro'
-  end
 
-  def has_started_subscription?
-    return true unless pro_plan?
-
-    stripe_subscription_id.present?
-  end
 
 end
